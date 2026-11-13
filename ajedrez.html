@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101513">
+  <title>Ajedrez | Juega tu partida</title>
+  <link rel="stylesheet" href="css/ajedrez.css">
+  <script src="js/ajedrez.js" defer></script>
+</head>
+<body class="game-page">
+  <main class="game">
+    <header class="page-header">
+      <a class="back-link" href="index.html">← Inicio</a>
+      <span class="eyebrow">MODO LOCAL · PARTIDA PARA DOS</span>
+      <h1>Ajedrez</h1>
+      <p class="subtitle">Dos rivales, un tablero y cada movimiento en tus manos.</p>
+    </header>
+
+    <section class="game-layout" aria-label="Partida de ajedrez">
+      <div class="board-wrap">
+        <div id="board" class="board" role="grid" aria-label="Tablero de ajedrez"></div>
+      </div>
+      <aside class="game-panel">
+        <div class="turn-card">
+          <span class="panel-label">TURNO</span>
+          <p id="turn" class="turn-text" aria-live="polite"></p>
+          <p id="status" class="status-text" aria-live="polite"></p>
+        </div>
+        <button id="restart" class="restart-button" type="button">↻ Nueva partida</button>
+        <section class="captures-card" aria-label="Piezas capturadas">
+          <h2>Piezas capturadas</h2>
+          <div class="capture-group">
+            <h3>Por blancas <span id="white-capture-count" class="capture-count">0</span></h3>
+            <div id="white-captured" class="captured-pieces" aria-label="Piezas capturadas por blancas" aria-live="polite"></div>
+          </div>
+          <div class="capture-group">
+            <h3>Por negras <span id="black-capture-count" class="capture-count">0</span></h3>
+            <div id="black-captured" class="captured-pieces" aria-label="Piezas capturadas por negras" aria-live="polite"></div>
+          </div>
+        </section>
+        <section class="moves-card" aria-label="Historial de jugadas">
+          <h2>Historial de jugadas</h2>
+          <ol id="move-history" class="move-history" aria-live="polite">
+            <li class="history-empty">Las jugadas aparecerán aquí.</li>
+          </ol>
+          <div class="history-downloads" aria-label="Descargar historial de la partida">
+            <button id="download-text" class="download-button" type="button" disabled>↓ Descargar TXT</button>
+            <button id="download-pdf" class="download-button" type="button" disabled>↓ Descargar PDF</button>
+          </div>
+        </section>
+        <div class="help-card">
+          <h2>Tu partida, tus decisiones</h2>
+          <p>Selecciona una pieza para ver sus movimientos posibles y elige una casilla resaltada para jugar.</p>
+          <p>Las blancas comienzan; después, jueguen por turnos. Revisa las capturas y el historial para seguir la partida. Si un peón llega al otro extremo, podrás promocionarlo.</p>
+          <p>Descarga el historial en formato TXT o PDF desde sus botones.</p>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <dialog id="promotion-dialog" class="promotion-dialog" aria-labelledby="promotion-title">
+    <form method="dialog">
+      <h2 id="promotion-title">Elige una pieza</h2>
+      <p>¿En qué pieza quieres convertir tu peón?</p>
+      <div id="promotion-options" class="promotion-options"></div>
+    </form>
+  </dialog>
+</body>
+</html>
